@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+ul{ display: flex;
+    justify-content: space-between;
+    margin: 20px;
+
+}
+
+li{
+   list-style-type: none;
+}
+
+h1{
+    text-align: center;
+    margin-top: 200px;
+}
+
+p{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+button{
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background-color: rgb(91, 6, 91);
+    color: white;  
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#scores{
+    color: rgb(227, 100, 182);
+}
+
+#scores:hover{
+    cursor: pointer;
+}
+
+#game-screen, #end-screen{
+    display: none;
+}
