@@ -14,40 +14,29 @@ const questions = [
     },
 
     {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
+        question: "What is JavaScript?",
+        answers: ["Object-Based language", "Assembly-language", "High-level language", "Object-Oriented language"],
+        correctAnswer: "Object-Based language"
     },
 
     {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
+        question: "Which of the following keywords is used to define a varibale in JavaScript?",
+        answers: ["const", "let", "const & let", "none of the above"],
+        correctAnswer: "const & let"
     },
 
     {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
+        question: "How can a datatype be declared to be a constant type?",
+        answers: ["const", "let", "var", "constant"],
+        correctAnswer: "const"
     },
 
     {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
-    },
-
-    {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
-    },
-
-    {
-        question: "first question",
-        answers: ["1", "2", "3", "4"],
-        correctAnswer: "2"
-    }   
+        question: "How are objects compared when they are checked with the strict equality operator?",
+        answers: ["the contents are compared", "their references are compared", "both A & B", "none of the above"],
+        correctAnswer: "their references are compared"
+    }
+  
 ]
 
 let questionIndex = 0;
