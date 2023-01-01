@@ -19,7 +19,7 @@
         <nav id="nav">
             <ul>
                 <li id="scores">View High Scores</li>
-                <li>Time:</li>
+                <li id="timer"></li>
             </ul>
         </nav>
         <div id="start-screen">
@@ -36,9 +36,16 @@
             <div id="answers">
 
             </div>
+            <h2 id="questionFeedback"></h2>
         </div>
         <div id="end-screen">
-            <h2>End Screen</h2>
+            <h2>Quiz Results</h2>
+            <p>Your final score is: </p>
+            <div>
+                <label for="initials">Enter Initials</label>
+                <input type = "text" id="initials">
+                <button id="submit-button">Submit</button>
+            </div>
         </div>
     </div>
 
