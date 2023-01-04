@@ -1,3 +1,5 @@
+//Variables Defined
+
 const button = document.getElementById("button-click");
 const h1 = document.getElementById("h1");
 const p = document.getElementById("p");
@@ -7,13 +9,25 @@ const question = document.getElementById("question");
 const answer = document.getElementById("answers");
 let time = document.getElementById("timer");
 let timer;
-let timeCount = 5;
+let timeCount = 60;
 let questionFeedback = document.getElementById("questionFeedback");
 let endScreen = document.getElementById("end-screen");
 const submitButton = document.getElementById("submit-button");
 let initialBox = document.getElementById("initials");
+var score = 0;
+const viewScore = document.getElementById("scores");
 
 
+//View High Score Link
+
+viewScore.addEventListener("click", function(){
+        startScreen.style.display = "none";
+        endScreen.style.display = "block";
+       
+    
+});
+
+//Questions for Quiz, including correct answer
 
 const questions = [
     {
@@ -48,6 +62,8 @@ const questions = [
 
 ]
 
+
+
 let questionIndex = 0;
 function displayQuestions() {
     questionFeedback.textContent = "";
@@ -63,6 +79,14 @@ function displayQuestions() {
     }
 }
 
+//Style questions
+
+document.getElementById("question").style.textAlign = "center";
+document.getElementById("answers").style.textAlign = "center";
+button.style.display = "block";
+
+//Display "correct or wrong" to selected answer
+
 function checkAnswer(event) {
     console.log(event.target.innerText);
     const currentQuestion = questions[questionIndex]
@@ -71,18 +95,20 @@ function checkAnswer(event) {
         console.log("Correct")
         questionFeedback.textContent = "Correct";
         questionFeedback.style.color = "green";
+        score = score  + 1;
     }
     else {
         console.log("Wrong")
         timeCount -= 10;
         questionFeedback.textContent = "Wrong";
         questionFeedback.style.color = "red";
+        score = score - 1;
     }
     questionIndex ++;
     setTimeout(displayQuestions, 2000)
 }
 
-
+//Display game screen when button clicked
 
 button.addEventListener("click", function () {
     startScreen.style.display = "none";
@@ -93,6 +119,8 @@ button.addEventListener("click", function () {
     startCountdown();
 
 });
+
+//Start timecount
 
 function startCountdown() {
     timer = setInterval(() => {
@@ -118,10 +146,12 @@ function startCountdown() {
 
 }
 
+//Created Initials and Score
+
 function getInitials (){
     const initials = initialBox.value;
-    const score = timeCount;
-    console.log(timeCount);
+    //const score = timeCount;
+    //console.log(timeCount);
     endScreen.innerHTML = `<h2>High Scores</h2>
 
     <table>
@@ -141,15 +171,11 @@ function getInitials (){
     initialData.textContent = initials
     scoreData.textContent = score
     
-
-    //load previous players scores from local storage
-    //display previous scores with my score sorted (top scores)
-    //update local storage with my score clipped at 15 scores
-
 }
 
-
 submitButton.addEventListener("click", getInitials)
+
+
 
 
 
