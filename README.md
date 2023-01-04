@@ -9,9 +9,9 @@ The assignment was to create a timed quiz using JavaScript that incorporated you
 
 ### View screen-shot below
 
-<img src="assets/timedquiz2.JPEG" alt ="screenshot of timed quiz">
+<img src="assets/timedquiz2.jpg" alt ="screenshot of timed quiz">
 
-<img src="assets/timedquiz1.JPEG" alt ="screenshot of timed quiz">
+<img src= "assets/timedquiz1.jpg" alt ="screenshot of timed quiz">
 
 ### View deployed website below
 
