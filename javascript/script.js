@@ -83,7 +83,10 @@ function displayQuestions() {
 
 document.getElementById("question").style.textAlign = "center";
 document.getElementById("answers").style.textAlign = "center";
-button.style.display = "block";
+document.getElementById("end-screen").style.textAlign = "center";
+
+//button.style.display = "block";
+//initials + center?
 
 //Display "correct or wrong" to selected answer
 
@@ -102,7 +105,7 @@ function checkAnswer(event) {
         timeCount -= 10;
         questionFeedback.textContent = "Wrong";
         questionFeedback.style.color = "red";
-        score = score - 1;
+        
     }
     questionIndex ++;
     setTimeout(displayQuestions, 2000)
