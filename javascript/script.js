@@ -14,17 +14,17 @@ let questionFeedback = document.getElementById("questionFeedback");
 let endScreen = document.getElementById("end-screen");
 const submitButton = document.getElementById("submit-button");
 let initialBox = document.getElementById("initials");
-var score = 0;
+var scores = 0;
 const viewScore = document.getElementById("scores");
 
 
 //View High Score Link
 
-viewScore.addEventListener("click", function(){
-        startScreen.style.display = "none";
-        endScreen.style.display = "block";
-       
-    
+viewScore.addEventListener("click", function () {
+    startScreen.style.display = "none";
+    endScreen.style.display = "block";
+
+
 });
 
 //Questions for Quiz, including correct answer
@@ -63,7 +63,6 @@ const questions = [
 ]
 
 
-
 let questionIndex = 0;
 function displayQuestions() {
     questionFeedback.textContent = "";
@@ -75,6 +74,7 @@ function displayQuestions() {
         const button = document.createElement("button")
         button.textContent = currentQuestion.answers[i]
         button.addEventListener("click", checkAnswer)
+        button.classList.add("answersButton")
         answer.append(button)
     }
 }
@@ -82,11 +82,10 @@ function displayQuestions() {
 //Style questions
 
 document.getElementById("question").style.textAlign = "center";
-document.getElementById("answers").style.textAlign = "center";
+answer.style.display = "flex";
+answer.style.flexDirection = "column";
 document.getElementById("end-screen").style.textAlign = "center";
 
-//button.style.display = "block";
-//initials + center?
 
 //Display "correct or wrong" to selected answer
 
@@ -98,17 +97,29 @@ function checkAnswer(event) {
         console.log("Correct")
         questionFeedback.textContent = "Correct";
         questionFeedback.style.color = "green";
-        score = score  + 1;
+        
     }
     else {
         console.log("Wrong")
         timeCount -= 10;
         questionFeedback.textContent = "Wrong";
         questionFeedback.style.color = "red";
+
+    }
+    questionIndex++;
+    setTimeout(displayQuestions, 2000)
+
+    if (questionIndex > questions.length - 1) {
+        setTimeout(endQuiz, 2000)
         
     }
-    questionIndex ++;
-    setTimeout(displayQuestions, 2000)
+}
+
+function endQuiz() {
+    clearInterval(timer);
+    gameScreen.style.display = "none";
+    startScreen.style.display = "none";
+    endScreen.style.display = "block";
 }
 
 //Display game screen when button clicked
@@ -134,10 +145,8 @@ function startCountdown() {
 
         if (timeCount <= 0) {
             time.textContent = "Your time is up!";
-            clearInterval(timer);
-            gameScreen.style.display = "none";
-            startScreen.style.display = "none";
-            endScreen.style.display = "block";
+            timeCount = 0;
+            endQuiz();
         }
 
         else {
@@ -151,12 +160,28 @@ function startCountdown() {
 
 //Created Initials and Score
 
-function getInitials (){
-    const initials = initialBox.value;
-    //const score = timeCount;
-    //console.log(timeCount);
-    endScreen.innerHTML = `<h2>High Scores</h2>
+const savedScores = JSON.parse(localStorage.getItem("highScores")) || []
+function getInitials() {
+    let initials = initialBox.value;
+    let score = timeCount;
+    console.log(timeCount);
+    console.log(savedScores);
+    if (score > savedScores.score || savedScores.length === 0) {
+        localStorage.setItem("highScores", JSON.stringify({
+            initials, score
+        }))
+        alert("You beat the high score!")
+    } else {
+        score = savedScores.score
+        initials = savedScores.initials
+        alert("You did not beat the high score.");
 
+        
+    }
+
+    //template literal
+
+    endScreen.innerHTML = `<h2>High Scores</h2>
     <table>
       <tr>
         <th>Initials</th>
@@ -167,34 +192,10 @@ function getInitials (){
         <td class = "score"></td>
       </tr>
     </table>`
-    
     let initialData = document.querySelector(".initials")
     let scoreData = document.querySelector(".score")
-
     initialData.textContent = initials
     scoreData.textContent = score
-    
 }
-
 submitButton.addEventListener("click", getInitials)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
