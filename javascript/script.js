@@ -33,31 +33,31 @@ const questions = [
     {
         question: "Arrays in JavaScript can be used to store:",
         answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-        correctAnswer: "all of the above"
+        correctAnswer: "4. all of the above"
     },
 
     {
         question: "What is JavaScript?",
         answers: ["1. Object-Based language", "2. Assembly-language", "3. High-level language", "4. Object-Oriented language"],
-        correctAnswer: "Object-Based language"
+        correctAnswer: "1. Object-Based language"
     },
 
     {
         question: "Which of the following keywords is used to define a varibale in JavaScript?",
         answers: ["1. const", "2. let", "3. const & let", "4. none of the above"],
-        correctAnswer: "const & let"
+        correctAnswer: "3. const & let"
     },
 
     {
         question: "How can a datatype be declared to be a constant type?",
         answers: ["1. const", "2. let", "3. var", "4. constant"],
-        correctAnswer: "const"
+        correctAnswer: "1. const"
     },
 
     {
         question: "How are objects compared when they are checked with the strict equality operator?",
         answers: ["1. the contents are compared", "2. their references are compared", "3. both A & B", "4. none of the above"],
-        correctAnswer: "their references are compared"
+        correctAnswer: "2. their references are compared"
     }
 
 ]
